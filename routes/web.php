@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Home\AboutController;
+use App\Http\Controllers\Home\BlogCategoryController;
 use App\Http\Controllers\Home\HomeSliderController;
+use App\Http\Controllers\Home\PortfolioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,3 +60,25 @@ Route::controller(AboutController::class)->group(function(){
     Route::get('/delete/multi/image/{id}', 'DeleteMultiImage')->name('delete.multi.image');
 });
 
+//Portfolio All Route
+
+Route::controller(PortfolioController::class)->group(function(){
+    Route::get('/all/portfolio', 'AllPortfolio')->name('all.portfolio');
+    Route::get('/add/portfolio', 'AddPortfolio')->name('add.portfolio');
+    Route::post('/store/portfolio', 'StorePortfolio')->name('store.portfolio');
+    Route::get('/edit/portfolio/{id}', 'EditPortfolio')->name('edit.portfolio');
+    Route::post('/update/portfolio', 'UpdatePortfolio')->name('update.portfolio');
+    Route::get('/delete/portfolio/{id}', 'DeletePortfolio')->name('delete.portfolio');
+
+    Route::get('/portfolio/details/{id}', 'PortfolioDetails')->name('portfolio.details');
+});
+
+// Blog Category All Routes
+Route::controller(BlogCategoryController::class)->group(function(){
+    Route::get('/all/blog/category', 'AllBlogCateogry')->name('all.blog.category');
+    Route::get('/add/blog/category', 'AddBlogCategory')->name('add.blog.category');
+    Route::post('/store/blog/category', 'StoreBlogCategory')->name('store.blog.category');
+    Route::get('/edit/blogcategory/{id}', 'EditBlogCategory')->name('edit.blog.category');
+    Route::post('/update/blogcategory', 'UpdateBlogCategory')->name('update.blog.category');
+    Route::get('/delete/blogcategory/{id}', 'DeleteBlogCategory')->name('delete.blog.category');
+});

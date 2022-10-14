@@ -121,8 +121,7 @@ class AboutController extends Controller
 
         MultiImage::findOrFail($id)->delete();
 
-
-          $notification = array(
+        $notification = array(
                 'message' => 'Multi image deleted Successfully',
                 'alert-type' => 'success'
             );
